@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>criando funções</title>
+</head>
+<body>
+
+    <script>
+        function JumpLine()
+        {
+            var jump = "<br><br><hr>";
+            document.write(jump);
+        }
+
+        function Manifest(texts)
+        {
+            document.write("<big>" + texts + "</big>");
+            JumpLine();
+        }
+
+        var ano = 2022;
+
+        Manifest("Joaquim tem " + (ano - 1988) + " anos de idade.");
+        Manifest("Fernando e Catarina têm " + (ano - 2000) + " anos de idade");
+        
+    </script>
+    
+</body>
+</html>

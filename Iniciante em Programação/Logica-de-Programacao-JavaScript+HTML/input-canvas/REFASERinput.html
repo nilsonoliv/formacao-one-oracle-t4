@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="input.css">
+    <title>Interagindo com o usuario</title>
+</head>
+<body>
+    <canvas class="quadro" width="600" height="400"></canvas>
+    <script>
+        var canva = document.querySelector('canvas');
+        var brush = canva.getContext('2d');
+        var colors = ['blue','red','green'];
+        //color = prompt('Escolha uma cor'); //permite que o usuário escolha a cor
+        var indiceColor = 0;
+        var color = colors[indiceColor];
+        var raio = 20;
+
+       /* function SelectSizeBol(evento) //almenta o tamanho do circulo sempre que a tecla shift é precionada e diminui quando ctrl é pressionado
+          {   //fAÇA ESSA FUNÇÃO DA CERTO
+            if(evento.shiftKey)
+            {
+                raio = raio + 25;
+            } else if(evento.ctrlKey)
+            {
+                raio = raio - 25;              
+            }
+        }*/
+
+       function SelectColor()
+        {
+            color = colors[indiceColor];
+            if (indiceColor >= 2)
+            {
+                indiceColor = 0;              
+            } else
+            {
+                indiceColor++;
+            }
+            
+        }
+
+        function DrawCircleOnClick(evento)
+        {
+            
+            var coordinatesX = evento.pageX - canva.offsetLeft; //pagex e pagey set a coordenada na tela do documento html
+            var coordinatesY = evento.pageY - canva.offsetTop;//offsetLeft
+            if(evento.shiftKey)
+            {//ESSE IF EMBORA FUNCIONE ESTA MUITO ERRADO, NÃO É CERTO UMA MESMA FUNÇÃO
+             //EXECUTAR TANTAS TAREFAS OU FUNÇÕES!!!!   
+                raio += 25;
+            }     
+            else if(evento.ctrlKey)
+            {
+                raio -= 25;
+            }
+           // SelectSizeBol();
+            brush.fillStyle = color;
+            brush.beginPath();
+            brush.arc(coordinatesX,coordinatesY,raio,0,2*3.14);
+            brush.fill();
+            console.log(coordinatesX  + ' , ' + coordinatesY);    
+        }
+
+        brush.fillStyle = 'white';
+        brush.fillRect(0,0,600,400);
+        brush.strokeStyle = 'black';
+        brush.strokeRect(0,0,600,400);
+        brush.fill();
+
+        canva.onclick = DrawCircleOnClick;//cria um circulo clicando com o botão esquerdo do mouse
+        canva.oncontextmenu = SelectColor;//seleciona a cor clicando com o botão direito do mouse
+    </script>
+
+    
+</body>
+</html>

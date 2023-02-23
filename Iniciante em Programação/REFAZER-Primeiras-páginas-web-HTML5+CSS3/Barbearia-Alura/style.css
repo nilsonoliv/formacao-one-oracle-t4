@@ -1,0 +1,202 @@
+html
+{
+    font-family:'arial', sans-serif;
+}
+.headerServicos
+{
+    background-color: #ccc;
+    padding: 25px 0;
+    font-family:arial;
+}
+
+.caixa
+{
+    width: 940px;
+    position: relative;
+    margin: 0 auto;
+}
+
+.menuServicos
+{
+    display: inline;
+    position: absolute;
+    top: 126px;
+    right: 0;
+}
+
+.itensMenuServicos
+{
+    margin-left: 20px;
+    text-decoration: none;
+    color: black;
+    text-shadow: 35px 15px 3px rgba(0,0,0,0.6);/*desnecessario mais é so para praticar*/
+}
+
+.itensMenuServicos:hover
+{
+    color: rgb(148, 114, 3);
+    text-decoration: underline;
+}
+.banner
+{
+    width: 100%;
+}
+
+section
+{
+    margin:30px 80px 0 80px ;
+}
+.principal
+{
+    background: #fefefe;
+    padding: 3em 0;
+}
+.principal p
+{
+    margin:0 0 1em;
+    font-size:22px;
+}
+
+
+.textH2 
+{
+    text-align:center;
+    font-size:3em;
+    margin:0 0 1em;
+    clear:left;
+    color:rgba(0,0,0,0.8);
+}
+.imagemUtensilios
+{
+    width:150px;
+    float:left;
+    margin:0 20px 20px 0;
+    box-shadow:10px 10px 20px #444;
+}
+
+.mapa
+{
+    padding:3em 0;
+    background:linear-gradient(#fefefe, #888);
+}
+.mapa h3
+{
+    text-align:center;
+    font-size:2em;
+    margin:0 0 20px 0;
+    color:rgba(0,0,0,0.8);
+}
+.mapa p
+{
+    margin:0 0 2em;
+    text-align:center;
+    font-size:22px;
+}
+.mapa iframe
+{
+     box-shadow:10px 10px 30px #111;
+}
+
+
+.imagembeneficios
+{
+    width: 50%;
+    opacity:0.9;
+     box-shadow:10px 10px 20px #111;
+}
+
+.beneficios
+{
+    background: #888;
+    padding: 20px;
+}
+.beneficios h2
+{
+    font-size:35px;
+    color:rgba(0,0,0,0.8);
+}
+.conteudo-beneficios
+{
+    width:650px;
+    margin: 0 auto;
+    margin-top:20px;
+    padding:15px;
+}
+.lista-beneficios
+{
+    width:40%;
+    display:inline-block;
+    vertical-align:top;
+}
+.itens
+{
+    line-height:1.5;
+    font-size:18px;
+}
+.itens:before
+{
+    content:"★ ";
+}
+.itens:first-child
+{
+    font-weight:bold;
+}
+
+.video
+{
+    width:560px;
+    margin:2em auto;
+}
+.video iframe
+{
+     box-shadow:10px 10px 20px #111;
+}
+
+
+footer
+{
+    text-align: center;
+    background: url(./images/bg.jpg);
+    padding: 40px 0;
+    color: white;
+    font-size: 18px;
+}
+
+footer p
+{
+    margin-top: 15px;
+}
+
+@media screen and (max-width: 1030px)
+{
+    .caixa, .principal, .conteudo-beneficios, .mapa, .video
+    {
+        width:auto;
+    }
+    .caixa h1
+    {
+        text-align:center;
+    }
+    .menuServicos
+    {
+        position:static;
+        text-align:center;
+    }
+    .imagembeneficios, .lista-beneficios
+    {
+        width:100%;
+        margin:10px;
+    }
+}
+
+@media screen and (max-width:674px)
+{
+    .caixa, .principal, .conteudo-beneficios, .mapa, .video
+    {
+        width:auto;
+    }
+    .banner
+    {
+        display:none;
+    }    
+}

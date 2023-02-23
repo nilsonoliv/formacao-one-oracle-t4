@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alvo aleatório</title>
+</head>
+<body>
+    <h1>Tente acertar no alvo antes dele mudar de lugar</h1>
+    <canvas width="800" height="400"></canvas>
+    <script>
+        var canva = document.querySelector('canvas');
+        var brush = canva.getContext('2d');
+        var coordinatesX = 20;
+        var coordinatesY = 20;
+        var randomX = PrizePosition(780);
+        var randomY = PrizePosition(380);
+        var radiusSmallCircle = 10
+
+
+        brush.fillStyle = 'lightgray';
+        brush.fillRect(0,0,800,400);
+
+        function DrawCircle(coordinatesX,coordinatesY,radius,color)
+        {
+            brush.fillStyle = color;
+            brush.beginPath();
+            brush.arc(coordinatesX,coordinatesY,radius,0,2*Math.PI);
+            brush.fill();    
+        }
+
+     
+        function DrawTarget(coordinatesX,coordinatesY)
+        {
+        DrawCircle(coordinatesX,coordinatesY,50,'red');
+        DrawCircle(coordinatesX,coordinatesY,30,'white');
+        DrawCircle(coordinatesX,coordinatesY,10,'red');
+        }    
+
+        function PrizePosition(maximo)
+        {
+            return Math.floor(Math.random()*maximo);
+        }
+
+        function RefreshScreen()
+        {
+            brush.clearRect(0,0,800,400);
+            brush.fillStyle = 'lightgray';
+            brush.fillRect(0,0,800,400);
+            randomX = PrizePosition(780);
+            randomY = PrizePosition(380);
+
+            DrawTarget(randomX,randomY);
+        }
+
+        function Shoot (event)
+        {
+            var areaClickX = event.pageX - canva.offsetLeft;
+            var areaClickY = event.pageY - canva.offsetTop;
+
+            if ((areaClickX > randomX - radiusSmallCircle)
+             && (areaClickX < randomX + radiusSmallCircle)
+             && (areaClickY > randomY - radiusSmallCircle)
+             && (areaClickY < randomY + radiusSmallCircle))
+            {
+                alert("Acertou!");    
+            }
+        }
+
+        setInterval(RefreshScreen,1500);
+        canva.onclick = Shoot;
+    </script>
+</body>
+</html>

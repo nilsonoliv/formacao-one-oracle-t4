@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="desenha-circulos.css">
+    <title>piccola fiore</title>
+</head>
+<body>
+    <canvas id="c1" class="canv" width="600" height="400"></canvas>
+    <canvas id="c2" class="canv" width="600" height="400"></canvas>
+    
+    <script>
+        canva = document.querySelector('#c1');
+        brush = canva.getContext('2d');
+
+        brush.fillStyle = 'white';
+        brush.fillRect(0,0,600,400);
+        brush.strokeStyle = "black";
+        brush.strokeRect(0,0,600,400);
+
+        brush.fillStyle = 'red';
+        brush.beginPath();
+        brush.arc(300,200,33,0,2*3.14);
+        brush.fill();
+
+        brush.fillStyle = 'green';
+        brush.beginPath();
+        brush.arc(225,200,40,0,2*3.14);
+        brush.fill();
+
+        brush.fillStyle = 'green';
+        brush.beginPath();
+        brush.arc(375,200,40,0,2*3.14);
+        brush.fill();
+
+        brush.fillStyle = 'yellow';
+        brush.beginPath();
+        brush.arc(300,125,40,0,2*3.14);
+        brush.fill();
+
+        brush.fillStyle = 'yellow';
+        brush.beginPath();
+        brush.arc(300,275,40,0,2*3.14);
+        brush.fill();
+         
+        //2º canvas
+        canva2 = document.querySelector('#c2');
+        brush2 = canva2.getContext('2d');
+
+        brush2.fillStyle = 'white';
+        brush2.fillRect(0,0,600,400);
+        brush2.strokeStyle = 'black';
+        brush2.strokeRect(0,0,600,400);
+
+        function DrawCircle(color,x,y,raio) {
+            brush2.fillStyle = color;
+            brush2.beginPath();
+            brush2.arc(x,y,raio,0,2*3.14);
+            brush2.fill();
+        }
+
+        DrawCircle('red',300,200,33);
+        DrawCircle('green',225,200,40);
+        DrawCircle('green',375,200,40);
+        DrawCircle('yellow',300,125,40);
+        DrawCircle('yellow',300,275,40);
+
+        function DrawLinea (color,x,y,sx,sy) 
+        {
+        brush2.fillStyle = color;
+        brush2.fillRect(x,y,sx,sy);
+        }
+        
+        DrawLinea('blue',50,0,15,400);
+        DrawLinea('blue',550,0,15,400);
+        
+    </script>
+</body>
+</html>

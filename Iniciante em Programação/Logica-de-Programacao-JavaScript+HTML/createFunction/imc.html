@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMC Calc</title>
+</head>
+<body>
+    <script>
+        function ImcCalc(peso, altura)
+        {
+            let imc = Math.round(peso / (altura*altura));
+            return imc;
+        }
+        
+       
+
+        var altura = parseFloat(prompt("Informe sua altura por favor."));
+        var peso = parseFloat(prompt("informe seu peso por favor."));
+        var imcUser = ImcCalc(peso,altura);
+        
+        document.write("<br>"+"O resultado do seu Imc é: " + imcUser + "<br><hr>");
+        if(imcUser > 35)
+        {
+            document.write("Cuidado!Seu imc está muito alto");
+        }
+        else if (imcUser < 35 && imcUser > 18.5)
+        {
+            document.write("Seu imc está normal");    
+        } else if(imcUser < 18.5)
+        {
+            document.write("Cuidado!Seu imc está muito baixo");
+        }
+
+    </script>
+</body>
+</html>

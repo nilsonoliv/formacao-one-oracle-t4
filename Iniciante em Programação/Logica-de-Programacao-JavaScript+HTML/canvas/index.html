@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>primeira aula</title>
+    
+</head>
+<body class="style">
+    
+    <canvas width="600px" height="600px" ></canvas>
+    <script>
+        var canvas = document.querySelector("canvas");
+        var brunsh = canvas.getContext("2d");  //precisamos informar à tela qual o tipo de pincel, ou seja, o contexto no qual escreveremos na tela. Para isso, utilizaremos o getContext() e passaremos o 2d como parâmetro.
+        brunsh.fillStyle = 'blue'; //Para indicar qual a "tinta", temos de indicar o fillStyle.Diferentemente de fillRect(), o fillStyle não é uma função, e sim o que chamamos de propriedade. É equivalente a uma variável, por receber um valor, que é a cor.
+        brunsh.fillRect(0,0,600,200);//Preencher em Inglês é "fill", enquanto "rect" é a abreviação de retângulo, como parãmetro a posição de preenchimento
+
+        brunsh.fillStyle = 'white';
+        brunsh.fillRect(0,200,600,200);
+
+        brunsh.fillStyle = 'red';
+        brunsh.fillRect(0,400,600,200);
+
+    </script>
+    
+</body>
+</html>

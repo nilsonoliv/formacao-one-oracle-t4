@@ -1,0 +1,9 @@
+.style {
+    display: flexbox;
+    justify-content: space-around;
+    
+   
+    width: 600;
+    height: 600;
+
+}

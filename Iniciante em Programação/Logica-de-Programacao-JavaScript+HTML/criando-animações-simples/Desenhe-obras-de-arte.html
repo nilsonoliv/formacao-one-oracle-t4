@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desenhe obras de arte</title>
+</head>
+<body>
+    <canvas width="600" height="400"></canvas>
+    <script>
+        var canva = document.querySelector('canvas');
+        var brush = canva.getContext('2d');
+        var coordinateX;
+        var coordinateY;
+        var radius = 15;
+        var draw = false;
+        var currentColor = 'blue';
+        var colorCircle = currentColor;
+        var xRed = 0;
+        var xGreen  = 50;
+        var xBlue = 100;
+        var ySquare = 0;
+        var sizeSquare = 50;
+
+
+        brush.fillStyle ='white';
+        brush.fillRect(0,0,600,400);
+        brush.strokeStyle = 'black';
+        brush.strokeRect(0,0,600,400);
+
+        function DrawSquare(coordinateX,coordinateY,size,colorSquare)
+        {
+            brush.fillStyle = colorSquare;
+            brush.fillRect(coordinateX,coordinateY,size,size);
+            brush.fill();
+        }
+
+        function DrawCircle(coordinateX,coordinateY,radius,colorCircle)
+        {
+            brush.fillStyle = colorCircle;
+            brush.beginPath()
+            brush.arc(coordinateX,coordinateY,radius,0,2*3.14);
+            brush.fill();
+        }
+
+        function DrawColorPalette()
+        {
+            DrawSquare(xRed, ySquare, sizeSquare, 'red');
+            DrawSquare(xGreen, ySquare, sizeSquare, 'green');
+            DrawSquare(xBlue, ySquare, sizeSquare, 'blue');
+        }
+
+        function GetMouseMovement(event)
+        {
+            coordinateX = event.pageX - canva.offsetLeft;
+            coordinateY = event.pageY - canva.offsetTop;
+                       
+            if (draw && NoDrawPaletteColor(coordinateX,coordinateY))
+            {
+                DrawCircle(coordinateX,coordinateY,5,colorCircle);    
+            }
+        }
+
+        function EnableDraw()
+        {
+            draw = true;
+        }
+
+        function DisableDraw()
+        {
+            draw = false;    
+        }
+
+        function SelectColor(event)
+        {
+            coordinateX = event.pageX - canva.offsetLeft;
+            coordinateY = event.pageY - canva.offsetTop;
+
+            if ((coordinateX > 0) && (coordinateX < 50) && (coordinateY > 0) && (coordinateY <50))
+            {
+                colorCircle = 'red';
+            }
+            if ((coordinateX > 50) && (coordinateX < 100) && (coordinateY > 0) && (coordinateY <50))
+            {
+                colorCircle = 'green';
+            }
+            if ((coordinateX > 100) && (coordinateX < 150) && (coordinateY > 0) && (coordinateY <50))
+            {
+                colorCircle = 'blue';
+            }            
+        }
+
+        function NoDrawPaletteColor(coordinateX,coordinateY)
+        {
+
+            if(coordinateX >= 0 && coordinateX < 150 && coordinateY >= 0 && coordinateY < 50)
+            {
+                return false;
+            } else
+            {
+                return true;
+            }
+
+}
+
+        DrawColorPalette();
+
+       canva.onmousemove = GetMouseMovement;
+
+       canva.onmousedown = EnableDraw;
+
+       canva.onmouseup = DisableDraw;
+       canva.onclick = SelectColor;
+
+    </script>
+</body>
+</html>

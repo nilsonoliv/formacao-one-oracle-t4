@@ -1,0 +1,13 @@
+body
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+.quadro
+{
+    margin: 60px;
+    margin-top: 15px;
+}

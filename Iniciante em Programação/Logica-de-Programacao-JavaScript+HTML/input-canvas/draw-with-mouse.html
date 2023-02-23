@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="input.css">
+    <title>criando uma linha de circulos</title>
+</head>
+<body>
+    <h2>Escolha uma cor <input type="color"></h2>
+    <canvas class="quadro" width="1200" height="800"></canvas>
+
+    <script>
+        var canva = document.querySelector('canvas');
+        var brush = canva.getContext('2d');
+        var controlActionBrush = false;
+        var palette = document.querySelector('input');
+                
+
+        function DrawCircle(event)
+        {
+            var coordinatesX = event.pageX - canva.offsetLeft; 
+            var coordinatesY = event.pageY - canva.offsetTop
+
+            if(controlActionBrush)
+            {
+            brush.fillStyle = palette.value;
+            brush.beginPath();
+            brush.arc(coordinatesX,coordinatesY,5,0,2*3.14);
+            brush.fill()
+            console.log(coordinatesX  + ' , ' + coordinatesY);
+            }
+        }
+
+        function ActivateBrush()
+        {
+            controlActionBrush = true;
+        }
+
+        function DeactivateBrush()
+        {
+            controlActionBrush = false;
+        }
+
+        brush.fillStyle = "white";
+        brush.fillRect(0,0,1200,800);
+        brush.strokeStyle = 'black';
+        brush.strokeRect(0,0,1200,800);
+        brush.fill();
+
+        canva.onmousemove = DrawCircle;
+        canva.onmouseup = DeactivateBrush;
+        canva.onmousedown = ActivateBrush;
+        
+    </script>
+</body>
+</html>

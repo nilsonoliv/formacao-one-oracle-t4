@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>criando objetos</title>
+</head>
+<body>
+    <div class="style">
+    <canvas id="canvas1" class="base" width="600" height="400"></canvas>
+    <canvas id="canvas2" class="base" width="600" height="400"></canvas>
+    <canvas id="canvas3" class="base" width="600" height="400"></canvas>
+    </div>
+
+    <script>
+        var canvas1 = document.querySelector("#canvas1");
+        var brush1 = canvas1.getContext("2d");
+        brush1.fillStyle = 'gray';
+        brush1.fillRect(0,0,600,400);
+      //CRIANDO UM TRIANGULO
+        brush1.fillStyle = 'yellow';
+        brush1.beginPath();
+        brush1.moveTo(300,200);
+        brush1.lineTo(200,400);
+        brush1.lineTo(400,400);
+        brush1.fill();
+
+
+        var canvas2 = document.querySelector("#canvas2");
+        var brush2 = canvas2.getContext("2d");
+        brush2.fillStyle = 'red';
+        brush2.fillRect(0,0,600,400);
+        //CRIANDO UM RETANGULO
+        brush2.fillStyle = 'black';
+        brush2.beginPath();
+        brush2.moveTo(100,100);
+        brush2.lineTo(100,200);
+        brush2.lineTo(400,100);
+        brush2.moveTo(400,200);
+        brush2.lineTo(400,100);
+        brush2.lineTo(100,200);
+        brush2.fill();
+
+        
+        var canvas3 = document.querySelector("#canvas3");
+        var brush3 = canvas3.getContext("2d");
+        brush3.fillStyle = 'green';
+        brush3.fillRect(0,0,600,400);
+
+        
+
+        
+    </script>
+
+</body>
+</html>

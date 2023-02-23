@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="circulo.css">
+    <title>circulo</title>
+</head>
+<body>
+    <div class="canva">
+        <canvas width="600" height="400">bandeira japonesa</canvas>
+    </div>
+    <script>
+        var canvas = document.querySelector("canvas");
+        var brush = canvas.getContext("2d");
+
+        brush.fillStyle = 'white';
+        brush.fillRect(0,0,600,400);
+        //DESENHANDO UM CIRCULO
+        brush.fillStyle = 'red';
+        brush.beginPath();
+        brush.arc(300,200,50,0,2*3.14);
+        brush.fill();
+    </script>
+    
+</body>
+</html>

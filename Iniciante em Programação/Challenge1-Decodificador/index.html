@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Criptografando</title>
+</head>
+
+<body>
+    <header>
+        <img class="img-logo-alura" src="./img/logoAluraVetor.png" alt="imagem do logo da alura" >
+    </header>
+
+    <main>
+        <section>
+            <textarea class="text-area-principal" cols="41" rows="4" placeholder="Digite seu texto"></textarea>
+
+            <div class="div-information">
+                <h6>Apenas letras minúsculas e sem acento!</h6>
+            </div>
+            <div class="div-bottons">
+                <botton class="btn-criptografar" onclick="btnEncriptar()">Criptografar</botton>
+                <botton class="btn-descriptografar">Descriptografar</botton>
+            </div>
+        </section>
+        <section>
+            <textarea class="text-area-menssage" cols="20" rows="10"></textarea>
+            <botton class="btn-copy">Copiar</botton>
+        </section>
+    </main>
+    <script src="./script.js"></script>
+</body>
+</html>

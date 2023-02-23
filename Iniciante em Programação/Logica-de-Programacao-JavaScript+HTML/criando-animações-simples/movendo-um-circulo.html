@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Move Circle</title>
+</head>
+<body>
+    
+    <canvas id="principal" class="styleCanva" width="600" height="500"></canvas>
+    
+
+    <script>
+        var canva = document.querySelector('#principal');
+        var brush = canva.getContext('2d');
+
+        function CreateCircle(coordinateX,coordinateY,radius)
+        {
+            brush.fillStyle = 'blue';
+            brush.beginPath()
+            brush.arc(coordinateX,coordinateY,radius,0,2*3.14);
+            brush.fill();
+        }
+
+        
+        brush.fillStyle = 'white';
+        brush.fillRect(0,0,600,500);
+        brush.strokeStyle = 'black';
+        brush.strokeRect(0,0,600,500);
+                
+        
+        var x = 20;
+        var m = true;
+        var n = false;
+
+        function RefreshScreen ()
+        {
+            
+            if (m)
+            {
+                brush.clearRect(2,2,597,497);
+                CreateCircle(x,40,18);
+                x = x + 20;
+            }
+            if (x==600)
+            {
+                m = false;
+                n = true;    
+            }
+            if (n)
+            {
+                brush.clearRect(2,2,597,497);
+                CreateCircle(x,40,18);
+                x = x - 20;
+            }
+            if (x==0)
+            {
+                m = true;
+                n = false;    
+            }
+    
+        }
+    /*UMA FORMA MAIS SIMPLES DE FAZER A BOLINHA IR E VOLTAR:
+        
+        var x = 20;
+        var sentido = 1;
+
+        function atualizaTela() {
+            limpaTela();
+            if (x > 600) {
+            sentido = -1;
+            } else if (x < 0) {
+            sentido = 1;
+            }
+        desenhaCirculo(x, 20, 10);
+            x = x + sentido;
+        }*/    
+
+        setInterval(RefreshScreen,30);
+
+    </script>
+
+
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .styleCanva {
+            margin-top: 40px;
+        }
+/*
+        canvas {
+            border-radius: 10px;
+            border-style: double;
+            border: black;
+            border-width: thick;
+            border-color: black;
+         
+        }*/
+        
+    </style>
+
+</body>
+</html>

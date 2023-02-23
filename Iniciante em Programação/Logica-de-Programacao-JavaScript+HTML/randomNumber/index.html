@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numeros aleatórios</title>
+</head>
+<body>
+    <script>
+        var randomNumber = Math.random(Math.random()* 15);
+        alert("Tente adivinhar qual o número que o computador vai escolher entre 1 e 15.");
+        var chooseUser = parseInt(prompt("Digite um número"));
+        if(randomNumber == chooseUser)
+        {
+            alert("Parabéns, você acertou. Seu número é " + chooseUser + " e o número do computador é " + randomNumber);
+        }
+        else
+        {
+            alert("Você errou o número do computador é " + randomNumber);
+        }
+    </script>
+</body>
+</html>
