@@ -43,3 +43,38 @@
     background: #620404;
     transition: all 1.s ease-in-out;
 }
+
+
+@media screen and (max-width: 1024px)
+{
+        .receitas
+        {
+            padding: 3rem 0 0 3rem;
+            justify-content: center;
+        }
+        .receita
+        {
+            width: calc(33% - 5rem);
+            margin-right: 3.8rem;
+
+        }
+}
+
+@media screen and (max-width: 360px)
+{
+    .receitas
+    {
+        flex-direction: column;
+        padding: 0;
+    }
+    .receita
+    {
+        margin: 0;
+        width: 100%;
+    }
+    .receita-titulo
+    {
+        text-align: center;
+    }
+    
+}

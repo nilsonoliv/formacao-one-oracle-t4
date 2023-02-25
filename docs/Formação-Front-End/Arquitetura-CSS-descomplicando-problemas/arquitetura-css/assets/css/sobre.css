@@ -1,12 +1,42 @@
-.sobre
+.sobre-titulo
 {
     color: #8d0606;
     font-family: Pacifico, cursive;
-    font-size: 18.075rem;
+    font-size: 8rem;
+    margin-bottom: 3%;
+    margin-left: 0.5%;
+    
 }
 .sobre-descricao
 {
     color: #595959;
     font-size: 1.75rem;
-    font-weight: 100;
+    font-weight: 600;
+    padding: 2%;
+}
+
+
+@media screen and (max-width: 1024px)
+{
+        .sobre-titulo
+        {
+            font-size: 3.5rem;
+            margin-top: 3%;
+            margin-bottom: 1%;
+        }
+        .sobre-descricao
+        {
+            margin-top: 0;
+        }
+}
+
+@media screen and (max-width: 360px)
+{
+    .sobre-titulo
+    {
+        font-size: 2rem;
+    }
+    
+
+    
 }

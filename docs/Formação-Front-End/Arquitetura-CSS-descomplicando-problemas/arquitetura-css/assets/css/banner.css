@@ -1,28 +1,40 @@
-.banner-imagem
-{
-    position: relative;
-}
 
 .banner-imagem
 {
+    position: relative;
     width: 100%;
-    height: 100vh;
+    height: calc(100vw - 100px);
 }
 .banner-titulo
 {
-    font-family: Pacifico, cursive;
     color: #fdfdfd;
+    font-family: Pacifico, cursive;
     font-size: 5.0625rem;
     position: absolute;
     left: 50%;
-    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.75);
-    top: 50%;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.804);
+    top: 200%;
     text-align: center;
     transform: translate(-50%, -50%);
     width: 100%;
 }
 
-@media (max-width: 360px)
+
+
+@media screen and (max-width: 1024px)
+{
+        .banner-imagem
+        {
+            height: 70vw;
+        }
+        .banner-titulo
+        {
+            top: 75%;
+        }
+
+}
+
+@media  screen and (max-width: 360px)
 {
     .banner
     {
@@ -30,7 +42,12 @@
     }
     .banner-imagem
     {
-        height: auto;
+        height: calc(100vw - 50px);
+    }
+    .banner-titulo
+    {
+        font-size: 2rem;
+        top: 45%;
     }
     
 

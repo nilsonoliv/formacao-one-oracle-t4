@@ -1,10 +1,9 @@
 .cabecalho
 {
+    background: #f9f9f9;
     display: flex;
     
     justify-content: space-between;
-
-    background: #f9f9f9;
 
     padding-left: 2rem;
     padding-right: 2rem;
@@ -14,9 +13,10 @@ header nav ul
 {
     display: flex;
 }
-header nav ul li
+.cabecalho-menu-itens
 {
     list-style: none;
+    font-size: 1.1rem;
 }
 header nav ul li a
 {
@@ -30,28 +30,29 @@ header nav ul li a#ativo
     color: #333;
     font-weight: bold;
 }
-header nav ul li:last-child a
+.cabecalho-menu-itens:last-child a
 {
     margin-right: 0px;
 }
-header nav ul li a:hover
+.cabecalho-menu-itens a:hover
 {
-    font-weight: bold;
     color: blue;
-    font-size: larger;
     cursor: pointer;
+    font-weight: bold;
+    font-size: larger;
 }
 
 
-@media (max-width: 360px)
+@media screen and (max-width: 360px)
 {
     .cabecalho
     {
-        margin-top: 2%;
+        align-items: center;
         flex-direction: column;
         justify-content: center;
-        align-items: center;
+        margin-top: 2%;
     }
+    
 
     
 }
