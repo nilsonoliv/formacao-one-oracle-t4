@@ -1,7 +1,7 @@
-header
+.cabecalho
 {
     display: flex;
-    align-items: center;
+    
     justify-content: space-between;
 
     background: #f9f9f9;
@@ -36,9 +36,22 @@ header nav ul li:last-child a
 }
 header nav ul li a:hover
 {
-    text-decoration: underline;
+    font-weight: bold;
     color: blue;
     font-size: larger;
+    cursor: pointer;
 }
 
 
+@media (max-width: 360px)
+{
+    .cabecalho
+    {
+        margin-top: 2%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    
+}

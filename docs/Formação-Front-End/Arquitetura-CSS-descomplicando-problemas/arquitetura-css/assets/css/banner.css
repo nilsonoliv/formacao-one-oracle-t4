@@ -21,3 +21,18 @@
     transform: translate(-50%, -50%);
     width: 100%;
 }
+
+@media (max-width: 360px)
+{
+    .banner
+    {
+        margin-top: 2%;
+    }
+    .banner-imagem
+    {
+        height: auto;
+    }
+    
+
+    
+}
