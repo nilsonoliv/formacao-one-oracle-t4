@@ -1,7 +1,7 @@
 .quem-somos
 {
     text-align: center;
-    padding: 5rem;
+    padding: 5rem 0 5rem 0;
 }
 .quem-somos-titulo
 {
@@ -45,14 +45,14 @@
 }
 .pessoa-imagem
 {
-    height: 300px;
-    width: 300px;
-    margin: 0 auto;
-    background: no-repeat;
+    background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-
     border-radius: 100%;
+    height: 300px;
+    margin: 0 auto;
+    width: 300px;
+
 }
 .pessoa-imagem-roberta
 {
