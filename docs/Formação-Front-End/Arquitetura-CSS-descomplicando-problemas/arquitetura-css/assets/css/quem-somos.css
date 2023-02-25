@@ -45,7 +45,7 @@
 }
 .pessoa-imagem
 {
-    background-repeat: no-repeat;
+    background-repeat:repeat;
     background-size: cover;
     background-position: center;
     border-radius: 100%;
@@ -56,15 +56,15 @@
 }
 .pessoa-imagem-roberta
 {
-    background: url('../img/pessoas/roberta.jpg');
+    background-image: url('../img/pessoas/roberta.jpg');
 }
 .pessoa-imagem-marcela
 {
-    background: url('../img/pessoas/marcela.jpg');
+    background-image: url('../img/pessoas/marcela.jpg');
 }
 .pessoa-imagem-andreia
 {
-    background: url('../img/pessoas/andreia.jpg');
+    background-image: url('../img/pessoas/andreia.jpg');
 
 }
 
