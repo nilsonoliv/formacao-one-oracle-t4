@@ -1,0 +1,9 @@
+Temos aqui o Ceep. O Ceep é uma aplicação de notas. Então, eu quero aqui deixar uma tarefa. Eu quero comprar um abacate. Quando clico em “NOVO ITEM”, no centro da tela, essa tarefa aparece aqui logo abaixo, no corpo da nossa aplicação. Ela tem dois botões, um de concluir, que dá um efeito de risco na nossa tarefa, então cliquei em concluir e ele deu esse efeito bacana, e se eu clicar em deletar, ele vai deletar a tarefa para mim.
+
+ Então, nós iremos gerar conteúdo de forma dinâmica. Para atingir esse objetivo, iremos aprender o que é o DOM e como percorrer a árvore do DOM. Então, nós vamos utilizar aqui, no “main HTML”, métodos para percorrer o DOM. Vamos selecionar elementos através de “Data Attributes”, vamos aprender a criar elementos, vamos aprender a colocar nós um dentro do outro, vamos aprender a gerar templates de elementos, utilizando templates strings.
+
+ Então, vamos trabalhar também com eventos, vamos trabalhar com evento de click. Iremos trabalhar também com o conceito de componentes, que são peças que podemos colocar em partes da aplicação que faça sentido ter aquela peça. Vamos ter aqui um componente de botaoConclui e esse componente irá gerar o botão para nós, e iremos, no final, encapsular esse botão dentro de um módulo para garantir a segurança do nosso código.
+
+ Vamos trabalhar aqui com export e com, no main, import. Vamos trabalhar também com eventos de formulário. Tudo isso para conseguirmos, no final, subir a nossa aplicação em um servidor para conseguir, depois, criar uma tarefa de comprar um abacate.
+
+ E que essa tarefa apareça aqui no corpo da aplicação. Então é isso, espero vocês na próxima aula.
