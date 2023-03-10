@@ -10,23 +10,26 @@ inputs.forEach(input =>
     
     function validaInput(input) // funçao vai validar todos os inputs   
 {    
-    const typeInput = input.dataset.tipo;    
-    if (validators[typeInput]) 
+    const inputType = input.dataset.tipo;    
+    if (validators[inputType]) 
     {
-        validators[typeInput](input);    
+        validators[inputType](input);    
     }
     
     if (input.validity.valid)
     {
         input.parentElement.classList.remove('input-container--invalido');  
         input.parentElement.querySelector('.input-mensagem-erro').innerHTML = '';  
-    } else
+    } else                 
     {
         input.parentElement.classList.add('input-container--invalido');
         input.parentElement.querySelector('.input-mensagem-erro').innerHTML = pegaMensagemDeErro(inputType, input);  
     }
 
-    const errorType = 
+    
+}
+
+const errorType = 
     [
         'valueMissing',
         'typeMismatch',
@@ -38,7 +41,7 @@ inputs.forEach(input =>
     {
         name:
         {
-            valueMissing: 'O campo dnamenão pode estar vazio.'
+            valueMissing: 'O campo de nome não pode estar vazio.'
         },
         email:
         {
@@ -56,7 +59,6 @@ inputs.forEach(input =>
             customError: 'Você deve ser maior que 18 anos para se cadastrar.'
         },
     }
-}
 
 const validators = 
 {   
@@ -71,7 +73,7 @@ function pegaMensagemDeErro(inputType, input)
         {
             if(input.validity[erro])
             {
-                mensagem = errorMessage[inputType][erro];
+                mesenger = errorMessage[inputType][erro];
             }
         })
     return mesenger;
