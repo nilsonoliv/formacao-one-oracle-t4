@@ -58,12 +58,18 @@ const errorType =
             valueMissing: 'O campo de data de nascimento não pode estar vazio.',
             customError: 'Você deve ser maior que 18 anos para se cadastrar.'
         },
+        cpf:
+        {
+            valueMissing: 'O campo de cpf não pode estar vazio',
+            customError: 'O cpf digitado não é válido'
+        }
     }
 
 const validators = 
 {   
-    dateBirth:input => validateDateBirth(input)
-}
+    dateBirth:input => validateDateBirth(input),
+    cpf:input => validateCPF(input)
+};
 
 function pegaMensagemDeErro(inputType, input)
 {
@@ -99,4 +105,48 @@ function biggerThen18(date) //Faz a comparação entre a data atual com a data i
     return dateBiggerThen18 <= dateNow;
 }
 
+function validateCPF(input) 
+{
+    const formattedCPF = input.value.replace(/\D/g, '');
 
+    let mesenger = "";
+
+    if (!checkCpfRepeatedNumbers(formattedCPF)) 
+    {
+        mesenger = "O cpf digitado não é válido";    
+    }
+
+    input.setCustomValidity(mesenger);
+}
+
+function checkCpfRepeatedNumbers(cpf) 
+{
+    const repeatedValues = [
+        '00000000000',
+        '11111111111',
+        '22222222222',
+        '33333333333',
+        '44444444444',
+        '55555555555',
+        '66666666666',
+        '77777777777',
+        '88888888888',
+        '99999999999'
+    ];
+    let validCPF = true;
+
+    repeatedValues.forEach(value => 
+        {
+            if(value == cpf)
+            {
+                validCPF = false;
+            }
+        })
+
+    return validCPF;    
+}
+
+function checkCpfStructure(cpf) 
+{
+        
+}
