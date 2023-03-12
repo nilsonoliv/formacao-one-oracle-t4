@@ -71,15 +71,23 @@ const errorType =
         },
         logradouro:
         {
-            valueMissing: 'O campo de logradouro não pode estar vazio',
+            valueMissing: 'O campo de logradouro não pode estar vazio'
         },
         city:
         {
-            valueMissing: 'O campo de cidade não pode estar vazio',
+            valueMissing: 'O campo de cidade não pode estar vazio'
         },
         state:
         {
-            valueMissing: 'O campo de estado não pode estar vazio',
+            valueMissing: 'O campo de estado não pode estar vazio'
+        },
+        nomeProduto:
+        {
+            valueMissing: 'Adicione o nome para o produto'
+        },
+        preco:
+        {
+            valueMissing: 'Adicione um valor para o produto'
         }
     }
 
