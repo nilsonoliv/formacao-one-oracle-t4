@@ -60,15 +60,34 @@ const errorType =
         },
         cpf:
         {
-            valueMissing: 'O campo de cpf não pode estar vazio',
+            valueMissing: 'O campo de CPF não pode estar vazio',
             customError: 'O cpf digitado não é válido'
+        },
+        cep:
+        {
+            valueMissing: 'O campo de CEP não pode estar vazio',
+            patternMismatch: 'O CEP digitado não é válido',
+            customError: 'Não foi possível buscar este CEP.'
+        },
+        logradouro:
+        {
+            valueMissing: 'O campo de logradouro não pode estar vazio',
+        },
+        city:
+        {
+            valueMissing: 'O campo de cidade não pode estar vazio',
+        },
+        state:
+        {
+            valueMissing: 'O campo de estado não pode estar vazio',
         }
     }
 
 const validators = 
 {   
     dateBirth:input => validateDateBirth(input),
-    cpf:input => validateCPF(input)
+    cpf:input => validateCPF(input),
+    cep:input => recoverCep(input)
 };
 
 function pegaMensagemDeErro(inputType, input)
@@ -181,4 +200,54 @@ function checkVerifyingDigit(cpf, multiplier)
     }
 
     return false;
+}
+
+function recoverCep(input) 
+{
+    const cep = input.value.replace(/\D/g, '');
+    const urlApi = `http://viacep.com.br/ws/${cep}/json/`;
+    const options = 
+    {
+        method: 'GET',
+        mode:'cors',
+        headers:
+        {
+            'content-type': 'application/json;charset=utf-8'
+        }
+    }
+
+    if (!input.validity.patternMismatch && !input.validity.valueMissing) 
+    {
+        fetch(urlApi,options).then
+        (
+            response => response.json()
+        ).then
+            ( 
+                data => 
+                {
+                    console.log(data);
+                    if (data.erro) 
+                    {
+                        input.setCustomValidity('Insira um CEP válido!');
+                        return
+                    }
+                    input.setCustomValidity('');
+                    fillCepForm(data);
+                    return;
+                }
+            )
+    }
+
+
+}
+
+function fillCepForm(data) 
+{
+    const logradouro = document.querySelector('[data-tipo="logradouro"]');    
+    const city = document.querySelector('[data-tipo="city"]');    
+    const state = document.querySelector('[data-tipo="state"]');    
+    
+    logradouro.value = data.logradouro;
+    city.value = data.localidade;
+    state.value = data.uf;
 }
