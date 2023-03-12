@@ -111,7 +111,7 @@ function validateCPF(input)
 
     let mesenger = "";
 
-    if (!checkCpfRepeatedNumbers(formattedCPF)) 
+    if (!checkCpfRepeatedNumbers(formattedCPF) || !checkCpfStructure(formattedCPF)) 
     {
         mesenger = "O cpf digitado não é válido";    
     }
@@ -148,5 +148,37 @@ function checkCpfRepeatedNumbers(cpf)
 
 function checkCpfStructure(cpf) 
 {
-        
+    const multiplier = 10;
+    return checkVerifyingDigit(cpf, multiplier)
+}
+
+function confirmDigit(sum) 
+{
+    return 11 - (sum % 11);
+}
+
+function checkVerifyingDigit(cpf, multiplier)
+{
+    if (multiplier >= 12) 
+    {
+        return true;    
+    }
+
+    let multiplierInit = multiplier;
+    let sum = 0;
+    const CpfWithoutDigits = cpf.substr(0, multiplier - 1).split('');
+    const verifyingDigit = cpf.charAt(multiplier - 1);
+
+    for(let i = 0; multiplierInit > 1; multiplierInit--)
+    {
+        sum = sum + CpfWithoutDigits[i] * multiplierInit;
+        i++;
+    }
+
+    if (verifyingDigit == confirmDigit(sum)) 
+    {
+        return checkVerifyingDigit(cpf, multiplier + 1);    
+    }
+
+    return false;
 }
